@@ -1,10 +1,15 @@
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
+import { useDispatch} from "react-redux";
+import { removetoCard } from "../Redux/slices/CartSlice";
 
-export default function OrderitemCard({img , name, price, id, qty }) {
+export default function OrderitemCard({id ,img , name, price, qty }) {
+
+  const dispatch = useDispatch()
+   
   return (
-    <div className="flex gap-2 shadow-md rounded-lg p-2 mb-3">
-      <MdDelete className=" absolute right-7 text-gray-700 cursor-pointer" />
+    <div className="flex gap-2 shadow-md rounded-lg p-2 mb-4">
+      <MdDelete onClick={()=> {dispatch(removetoCard({id ,img , name, price, qty}))} } className=" absolute right-7 text-gray-700 cursor-pointer" />
       <img
         src={img}
         alt="onion pizza"

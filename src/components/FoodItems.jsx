@@ -9,6 +9,7 @@ export default function FoodItems({cart}) {
         return (
           <FoodCards
             key={food.id}
+            id={food.id}
             img={food.img}
             name={food.name}
             desc={food.desc}
