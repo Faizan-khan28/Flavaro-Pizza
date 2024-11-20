@@ -39,7 +39,7 @@ export default function Slider() {
               qty={food.qty}
             />
           ); // yaha prop ka data kaise gaya samajh nahi aya
-        }) : <h2 className="text-xl text-gray-800 font-bold flex justify-center mt-16">Your Cart is Empty</h2>}
+        }) : <h2 className="text-xl text-gray-800 font-bold flex justify-center mt-14">Your Cart is Empty</h2>}
 
         <div className=" absolute bottom-0 ">
           <h3 className="font-semibold text-gray-800">Total Amount :</h3>
