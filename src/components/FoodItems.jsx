@@ -1,9 +1,10 @@
 import FoodCards from "./FoodCards";
 import FoodData from "../Data/Data/FoodData.js";
 
-export default function FoodItems() {
+export default function FoodItems({cart}) {
   return (
     <div className="flex flex-wrap gap-10 justify-center sm:justify-start mx-6 my-10">
+      
       {FoodData.map(food => {
         return (
           <FoodCards
