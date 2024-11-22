@@ -53,7 +53,7 @@ export default function Slider() {
 
       <FaCartShopping
         onClick={toggleSlider}
-        className=" rounded-full bg-white text-5xl shadow-md p-3 fixed bottom-4 right-4"
+        className=" rounded-full bg-white text-5xl shadow-md p-3 fixed bottom-4 cursor-pointer right-4"
       />
     </>
   );
