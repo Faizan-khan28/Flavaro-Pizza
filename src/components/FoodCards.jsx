@@ -2,7 +2,7 @@ import { FaStar } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addtoCard } from "../Redux/slices/CartSlice";
 
-export default function FoodCards({ desc, name, rating, img, price, id }) {
+export default function FoodCards({ desc, name, rating, img, price, id, handleToast }) {
 
   const dispatch = useDispatch();
 
@@ -26,6 +26,7 @@ export default function FoodCards({ desc, name, rating, img, price, id }) {
         <button
           onClick={()=> {
             dispatch(addtoCard({id , price, rating, img, name, qty: 1}))
+            handleToast(name);
           }}
           className="p-1 bg-green-500 rounded-md hover:bg-green-600 text-white text-sm"
         >

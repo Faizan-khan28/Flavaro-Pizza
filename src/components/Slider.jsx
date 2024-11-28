@@ -4,7 +4,7 @@ import { FaShoppingCart  } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
-export default function Slider() {
+export default function Slider({handleDelete}) {
   const [slider, setSlider] = useState(true);
 
   let toggleSlider = () => {
@@ -16,6 +16,8 @@ export default function Slider() {
   const totalQty = OrderitemCards.reduce((totalQty, item) => {
     return totalQty + item.qty;
   }, 0);
+
+  const totalPrice = OrderitemCards.reduce((totalPrice , item) => totalPrice + item.qty * item.price, 0);
 
   return (
     <>
@@ -41,13 +43,14 @@ export default function Slider() {
               price={food.price}
               name={food.name}
               qty={food.qty}
+              handleDelete={handleDelete}
             />
           ); // yaha prop ka data kaise gaya samajh nahi aya
         }) : <h2 className="text-xl text-gray-800 font-bold flex justify-center mt-14">Your Cart is Empty</h2>}
 
         <div className=" absolute bottom-0 ">
           <h3 className="font-semibold text-gray-800">Items :{totalQty}</h3>
-          <h3 className="font-semibold text-gray-800">Total Amount :</h3>
+          <h3 className="font-semibold text-gray-800">Total Amount :{totalPrice}</h3>
           <hr className="w-[90vw] sm:w-[18wv] my-2" />
           <button className="bg-green-500 text-white hover:bg-green-600 rounded-md px-3 py-2 w-[90vw] sm:w-[23vw] mb-5">
             Checkout
@@ -57,7 +60,7 @@ export default function Slider() {
 
       <FaShoppingCart 
         onClick={toggleSlider}
-        className={`${totalQty > 0 && "animate-bounce delay-500 transition-all bg-green-400"} rounded-2xl bg-white text-4xl shadow-md p-3 h-12 w-12 fixed bottom-4 cursor-pointer right-4`}
+        className={`${totalQty > 0 && "animate-bounce delay-500 transition-all bg-green-400"} rounded-2xl bg-white text-4xl shadow-md p-3 h-[45px] w-[45px] fixed bottom-4 cursor-pointer right-4`}
       />
     </>
   );

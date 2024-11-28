@@ -3,13 +3,13 @@ import { MdDelete } from "react-icons/md";
 import { useDispatch} from "react-redux";
 import { removetoCard, incrementQty, decrementQty } from "../Redux/slices/CartSlice";
 
-export default function OrderitemCard({id ,img , name, price, qty }) {
+export default function OrderitemCard({id ,img , name, price, qty , handleDelete}) {
 
   const dispatch = useDispatch()
    
   return (
     <div className="flex gap-2 shadow-md rounded-lg p-2 mb-4">
-      <MdDelete onClick={()=> {dispatch(removetoCard({id ,img , name, price, qty}))} } className=" absolute right-7 text-gray-700 cursor-pointer" />
+      <MdDelete onClick={()=> {dispatch(removetoCard({id ,img , name, price, qty})),handleDelete(name)} } className=" absolute right-7 text-gray-700 cursor-pointer" />
       <img
         src={img}
         alt="onion pizza"
