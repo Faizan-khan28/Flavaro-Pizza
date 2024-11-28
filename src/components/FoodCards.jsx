@@ -15,7 +15,7 @@ export default function FoodCards({ desc, name, rating, img, price, id }) {
       />
       <div className="text-sm flex justify-between">
         <h2>{name}</h2>
-        <span className="text-green-500">{price}</span>
+        <span className="text-green-500">₹{price}</span>
       </div>
       <p className="text-sm font-normal">{desc.slice(0, 50)}........</p>
       <div className="flex justify-between items-center">

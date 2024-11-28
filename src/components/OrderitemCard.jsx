@@ -19,7 +19,7 @@ export default function OrderitemCard({id ,img , name, price, qty }) {
       <div className=" leading-6">
         <h2 className="font-bold text-gray-800">{name}</h2>
         <div className="flex justify-between">
-          <span className="font-bold text-green-500">{price}</span>
+          <span className="font-bold text-green-500">₹{price}</span>
           <div className="flex gap-2 absolute right-7 items-center">
             <FiPlus onClick={()=>  dispatch(incrementQty({id}))} className="border-gray-600 border p-1 text-xl text-gray-600 hover:bg-green-500 hover:text-white hover:border-none rounded-lg transition-all ease-linear cursor-pointer" />
             <span>{qty}</span>
