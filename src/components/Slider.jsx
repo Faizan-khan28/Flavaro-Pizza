@@ -3,9 +3,10 @@ import OrderitemCard from "./OrderitemCard";
 import { FaShoppingCart  } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Slider({handleDelete}) {
-  const [slider, setSlider] = useState(true);
+  const [slider, setSlider] = useState(false);
 
   let toggleSlider = () => {
     setSlider(!slider);
@@ -18,6 +19,8 @@ export default function Slider({handleDelete}) {
   }, 0);
 
   const totalPrice = OrderitemCards.reduce((totalPrice , item) => totalPrice + item.qty * item.price, 0);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -45,14 +48,14 @@ export default function Slider({handleDelete}) {
               qty={food.qty}
               handleDelete={handleDelete}
             />
-          ); // yaha prop ka data kaise gaya samajh nahi aya
+          ); 
         }) : <h2 className="text-xl text-gray-800 font-bold flex justify-center mt-14">Your Cart is Empty</h2>}
 
         <div className=" absolute bottom-0 ">
           <h3 className="font-semibold text-gray-800">Items :{totalQty}</h3>
           <h3 className="font-semibold text-gray-800">Total Amount : ₹{totalPrice}</h3>
           <hr className="w-[90vw] sm:w-[18wv] my-2" />
-          <button className="bg-green-500 text-white hover:bg-green-600 rounded-md px-3 py-2 w-[90vw] sm:w-[23vw] mb-5">
+          <button onClick={()=> navigate("/Success")} className="bg-green-500 text-white hover:bg-green-600 rounded-md px-3 py-2 w-[90vw] sm:w-[23vw] mb-5">
             Checkout
           </button>
         </div>
